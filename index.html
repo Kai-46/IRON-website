@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="IRON: Inverse Rendering by Optimizing Neural SDFs and Materials from Photometric Images">
+  <meta name="keywords" content="IRON, Neural SDFs, Neural Materials, Photometric Images">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IRON: Inverse Rendering by Optimizing Neural SDFs and Materials from Photometric Images</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">IRON: Inverse Rendering by Optimizing Neural SDFs and
+              Materials
+              from Photometric Images</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://kai-46.github.io/website/">Kai Zhang</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://luanfujun.github.io/">Fujun Luan</a><sup>2</sup>,</span>
+              <span class="author-block">
+                <a href="https://www.cs.cornell.edu/~zl548/">Zhengqi Li</a><sup>3</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://www.cs.cornell.edu/~snavely/">Noah Snavely</a><sup>1</sup>,
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>Cornell University</span>
+              <span class="author-block"><sup>2</sup>Adobe Research</span>
+              <span class="author-block"><sup>3</sup>Google Research</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <iframe width="900" height="507" src="https://www.youtube.com/embed/fd1an-Zt0q0" title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+
+        <h2 class="subtitle has-text-centered">
+          <span class="dnerf">IRON</span> turns multi-view photometric images of real objects into 3D assets in the form
+          of meshes and
+          material textures that can be rendered by existing graphic renderers; objects lit by spotlight or animated are
+          digitalized real objects, while others are created by 3D artists. (Best viewed in HD)
+        </h2>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column iis-max-desktop content">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              We propose a neural inverse rendering pipeline called IRON that operates on photometric images and outputs
+              high-quality
+              3D content in the format of triangle meshes and material textures readily deployable in existing graphics
+              pipelines. Our
+              method adopts neural representations for geometry as signed distance fields (SDFs) and materials during
+              optimization to
+              enjoy their flexibility and compactness, and features a hybrid optimization scheme for neural SDFs: first,
+              optimize
+              using a volumetric radiance field approach to recover correct topology, then optimize further using
+              edgeaware
+              physics-based surface rendering for geometry refinement and disentanglement of materials and lighting. In
+              the second
+              stage, we also draw inspiration from mesh-based differentiable rendering, and design a novel edge sampling
+              algorithm for
+              neural SDFs to further improve performance. We show that our IRON achieves significantly better inverse
+              rendering
+              quality compared to prior works.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-max-desktop content">
+          <img src="resources/assets.png" alt="Italian Trulli">
+          <p class="subtitle has-text-centered">
+            Example 3D assets created by <span class="dnerf">IRON</span> from multi-view photometric images of real
+            objects.
+          </p>
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-max-desktop content">
+          <img src="resources/capture_setup.jpeg" alt="Italian Trulli">
+          <p class="subtitle has-text-centered">
+            In practice, photometric images can be captured by a hand-held smartphone camera with LED flashlight turned
+            on in a
+            dark
+            environment.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@inproceedings{iron-2022,
+title={IRON: Inverse Rendering by Optimizing Neural SDFs and Materials from Photometric Images},
+author={Zhang, Kai and Luan, Fujun and Li, Zhengqi and Snavely, Noah},
+booktitle={IEEE Conf. Comput. Vis. Pattern Recog.},
+year={2022}
+}</code></pre>
+    </div>
+    <div class="container is-max-desktop content">
+      <h2 class="title">Acknowledgements</h2>
+      <p>
+        This work was supported in part by the National Science Foundation (IIS-2008313), and by funding from Intel and
+        Amazon
+        Web Services. We also thank Sai Bi for providing their code and data.
+      </p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website template is borrowed from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
